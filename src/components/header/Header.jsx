@@ -6,11 +6,11 @@ import "./Header.css";
 const Header = () => {
   return (
     <nav>
-      <Link to="/home">
+      <Link to="/">
         <img src={logo} alt="" />
       </Link>
       <div>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
         <Link to="/order-review">Order Review</Link>
         <Link to="/inventory">Manage Inventory</Link>
