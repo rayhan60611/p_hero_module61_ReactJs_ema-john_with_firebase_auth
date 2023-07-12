@@ -9,6 +9,7 @@ import OrderReview from "./components/orderReview/OrderReview.jsx";
 import Login from "./components/login/Login.jsx";
 import Invenroty from "./components/intentory/Invenroty.jsx";
 import Home from "./components/home/Home.jsx";
+import customLoader from "./loader/CustomLoader.js";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: "order-review",
         element: <OrderReview />,
+        loader: customLoader,
       },
       {
         path: "inventory",
