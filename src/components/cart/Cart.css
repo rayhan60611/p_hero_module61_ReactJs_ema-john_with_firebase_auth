@@ -1,0 +1,73 @@
+.card-div {
+  background-color: bisque;
+  padding-bottom: 30px;
+  border-radius: 8px;
+}
+
+.cart-bill-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.cart-bill-p {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.cart-bill-h4 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.grand-total-h4 {
+  color: green;
+  font-size: 18px !important;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px 10px;
+}
+
+.btn-container .btn-clear-cart,
+.btn-review-order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 16px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+  border: 0;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.188px;
+  border-radius: 8px;
+}
+
+.btn-clear-cart {
+  background-color: rgb(255, 0, 0);
+}
+
+.btn-clear-cart:hover {
+  background-color: rgba(29, 136, 2, 0.887);
+  transition: background-color 0.5s ease;
+}
+
+.btn-review-order {
+  background-color: #ff9900;
+}
+
+.btn-review-order:hover {
+  background-color: rgba(29, 136, 2, 0.887);
+  transition: background-color 0.3s ease-in;
+}
