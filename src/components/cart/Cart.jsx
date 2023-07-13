@@ -1,10 +1,9 @@
 // import React from "react";
-import { deleteCart } from "../../utilities/localStorage";
 // import Product from "../products/Product";
 import "./Cart.css";
+import { TrashIcon } from "@heroicons/react/24/outline";
 
-const Cart = ({ cart }) => {
-  console.log(cart);
+const Cart = ({ cart, clearCartHandler, children }) => {
   let totalPrice = 0;
   let totalShippingPrice = 0;
   let quantity = 0;
@@ -32,17 +31,12 @@ const Cart = ({ cart }) => {
         </h4>
       </div>
       <div className="btn-container">
-        <button
-          onClick={() => {
-            deleteCart();
-          }}
-          className="btn-clear-cart"
-        >
-          Clear Cart <ion-icon name="trash-outline"></ion-icon>
+        <button onClick={clearCartHandler} className="btn-clear-cart">
+          Clear Cart{" "}
+          <TrashIcon className="h-6 w-6 duration-500 text-white group-hover:text-red-700 " />
         </button>
-        <button className="btn-review-order">
-          Review Order <ion-icon name="arrow-forward-circle-outline"></ion-icon>
-        </button>
+        {/* review odrder button as a react children */}
+        {children}
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import noImage from "../../assets/images/NoImageFound.jpg.png";
 import { useEffect, useState } from "react";
 
 const Product = (props) => {
-  console.log(props.product);
   const { name, price, ratings, img, seller } = props.product;
   const handleAddToCart = props.handleAddToCart;
   // checking falty image link

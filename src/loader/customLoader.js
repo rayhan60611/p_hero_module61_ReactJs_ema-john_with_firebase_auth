@@ -17,7 +17,7 @@ const productDataLoader = async () => {
         savedCart.push(addedProduct);
       }
     }
-    console.log(savedCart);
+    // console.log(savedCart);
     return savedCart;
   } catch (err) {
     return console.log(err);

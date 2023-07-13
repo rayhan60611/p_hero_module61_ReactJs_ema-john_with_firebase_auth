@@ -4,7 +4,13 @@ import "./Shop.css";
 import { useEffect } from "react";
 import Product from "../products/Product";
 import Cart from "../cart/Cart";
-import { addToCart, getShoppingCart } from "../../utilities/localStorage";
+import {
+  addToCart,
+  deleteCart,
+  getShoppingCart,
+} from "../../utilities/localStorage";
+import { Link } from "react-router-dom";
+import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 
 const Shop = () => {
   // using state to read and set data
@@ -58,6 +64,12 @@ const Shop = () => {
     // adding to local storage
     addToCart(product.id);
   };
+
+  // clear cart handler method
+  const clearCartHandler = () => {
+    deleteCart();
+    setCart([]);
+  };
   return (
     <div className="shop-container">
       <div>
@@ -75,7 +87,14 @@ const Shop = () => {
         </div>
       </div>
       <div className="cart-bill-container-parent">
-        <Cart cart={cart}></Cart>
+        <Cart cart={cart} clearCartHandler={clearCartHandler}>
+          <Link to="/order-review">
+            <button className="btn-review-order">
+              Review Order{" "}
+              <ArrowRightCircleIcon className="h-6 w-6 duration-500 text-white group-hover:text-red-700 " />
+            </button>
+          </Link>
+        </Cart>
       </div>
     </div>
   );

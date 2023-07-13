@@ -1,11 +1,33 @@
 // import React from "react";
 
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Cart from "../cart/Cart";
 import ReviewItem from "../reviewItem/ReviewItem";
+import { useState } from "react";
+import {
+  deleteCart,
+  removeSingleItemFromCart,
+} from "../../utilities/localStorage";
+
+import { BanknotesIcon } from "@heroicons/react/24/outline";
 
 const OrderReview = () => {
-  const cart = useLoaderData();
+  const products = useLoaderData();
+  const [cart, setCart] = useState(products);
+  // removing a single product from review order page
+  const reviewItemDeleteHandler = (id) => {
+    const remaining = products.filter((pd) => pd.id != id);
+    // removing from state
+    setCart(remaining);
+    // removing from local storage
+    removeSingleItemFromCart(id);
+  };
+
+  // clear cart handler method
+  const clearCartHandler = () => {
+    deleteCart();
+    setCart([]);
+  };
   return (
     <div className="mt-14 flex flex-col md:flex-row gap-8 md:gap-12 justify-evenly items-center mx-8">
       <div className="basis-2/4 h-[400px] overflow-y-scroll">
@@ -13,11 +35,22 @@ const OrderReview = () => {
           Total Ordered item: {cart.length}
         </h1>
         {cart.map((product) => (
-          <ReviewItem key={product.id} product={product}></ReviewItem>
+          <ReviewItem
+            key={product.id}
+            product={product}
+            reviewItemDeleteHandler={reviewItemDeleteHandler}
+          ></ReviewItem>
         ))}
       </div>
       <div className="w-11/12 md:w-4/12 basis-2/4">
-        <Cart cart={cart}></Cart>
+        <Cart cart={cart} clearCartHandler={clearCartHandler}>
+          <Link to="/order-review" className="group">
+            <button className="btn-review-order group-hover:animate-pulse">
+              Proceed Checkout
+              <BanknotesIcon className="h-6 w-6 duration-500 text-white  " />
+            </button>
+          </Link>
+        </Cart>
       </div>
     </div>
   );
