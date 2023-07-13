@@ -12,6 +12,9 @@ import {
 import { Link } from "react-router-dom";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Shop = () => {
   // using state to read and set data
   const [products, setProducts] = useState([]);
@@ -69,6 +72,7 @@ const Shop = () => {
   const clearCartHandler = () => {
     deleteCart();
     setCart([]);
+    toast.success("Cart Cleared");
   };
   return (
     <div className="shop-container">
@@ -96,6 +100,19 @@ const Shop = () => {
           </Link>
         </Cart>
       </div>
+      {/* toast notification */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

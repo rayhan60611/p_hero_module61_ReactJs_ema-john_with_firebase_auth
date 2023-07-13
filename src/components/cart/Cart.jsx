@@ -31,6 +31,7 @@ const Cart = ({ cart, clearCartHandler, children }) => {
         </h4>
       </div>
       <div className="btn-container">
+        {/* clear cart button */}
         <button onClick={clearCartHandler} className="btn-clear-cart">
           Clear Cart{" "}
           <TrashIcon className="h-6 w-6 duration-500 text-white group-hover:text-red-700 " />

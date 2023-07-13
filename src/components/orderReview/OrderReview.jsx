@@ -11,6 +11,9 @@ import {
 
 import { BanknotesIcon } from "@heroicons/react/24/outline";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const OrderReview = () => {
   const products = useLoaderData();
   const [cart, setCart] = useState(products);
@@ -21,10 +24,14 @@ const OrderReview = () => {
     setCart(remaining);
     // removing from local storage
     removeSingleItemFromCart(id);
+
+    const item = products.find((pd) => pd.id === id);
+    toast.error(`${item.name} removed from Cart`);
   };
 
   // clear cart handler method
   const clearCartHandler = () => {
+    toast.success("Cart Cleared");
     deleteCart();
     setCart([]);
   };
@@ -52,6 +59,19 @@ const OrderReview = () => {
           </Link>
         </Cart>
       </div>
+      {/* toast notification */}
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };
