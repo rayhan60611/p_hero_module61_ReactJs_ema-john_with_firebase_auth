@@ -1,8 +1,11 @@
 // import React from "react";
 import "./Login.css";
 import google from "../../assets/images/google.png";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 
 const Login = () => {
+  const [passShow, setPassShow] = useState(false);
   return (
     <div className="container">
       <div className="container-inner">
@@ -11,9 +14,23 @@ const Login = () => {
           <label>Email</label>
           <input className="w-full" type="email" />
         </div>
-        <div className="input-div">
+        <div className="input-div relative">
           <label>Password</label>
-          <input type="password" />
+          <input
+            type={`${passShow ? "text" : "password"}`}
+            name="password"
+            required
+          />
+          <div
+            className="absolute top-10 right-2"
+            onClick={() => setPassShow(!passShow)}
+          >
+            {passShow ? (
+              <EyeSlashIcon className="w-7 h-7 font-bold text-black hover:text-orange-400 duration-500" />
+            ) : (
+              <EyeIcon className="w-7 h-7 font-bold text-black hover:text-orange-400 duration-500" />
+            )}
+          </div>
         </div>
         <button className="btn-login">Login</button>
         <a href="#" className="login-a-tag1">

@@ -1,8 +1,11 @@
 // import React from 'react';
 import { Link } from "react-router-dom";
 import Model from "../../assets/images/model.png";
+import { useContext } from "react";
+import { authContext } from "../authProvider/AuthProviders";
 
 const Home = () => {
+  // const { user } = useContext(authContext);
   return (
     <div className=" flex flex-col mt-10 md:flex-row md:justify-around items-center h-screen gap-10">
       {/* left div */}
