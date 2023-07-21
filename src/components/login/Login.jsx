@@ -20,6 +20,7 @@ const Login = () => {
       .then((result) => {
         // Signed in
         const user = result.user;
+        console.log(user);
         toast.success("User Login Successfully!", {
           position: "top-right",
           autoClose: 3000,
