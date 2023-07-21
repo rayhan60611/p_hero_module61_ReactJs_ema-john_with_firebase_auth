@@ -13,6 +13,7 @@ import customLoader from "./loader/CustomLoader.js";
 import SignUp from "./components/signUp/SignUp.jsx";
 import AuthProviders from "./components/authProvider/AuthProviders.jsx";
 import PrivateRoute from "./components/privateRoute/Privateroute.jsx";
+import LoginSignupPrivate from "./components/privateRoute/LoginSignupPrivate.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,11 +48,19 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: <Login />,
+        element: (
+          <LoginSignupPrivate>
+            <Login />
+          </LoginSignupPrivate>
+        ),
       },
       {
         path: "signup",
-        element: <SignUp />,
+        element: (
+          <LoginSignupPrivate>
+            <SignUp />
+          </LoginSignupPrivate>
+        ),
       },
     ],
   },

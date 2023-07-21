@@ -6,11 +6,11 @@ import { useContext, useState } from "react";
 import { authContext } from "../authProvider/AuthProviders";
 import { toast } from "react-toastify";
 import { authErrors } from "../../firebase/firebaseErrorCodes";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [passShow, setPassShow] = useState(false);
-  const { logIn } = useContext(authContext);
+  const { user, logIn } = useContext(authContext);
   const navigate = useNavigate();
 
   const handleLoginSubmit = (event) => {
@@ -78,9 +78,9 @@ const Login = () => {
             </div>
           </div>
           <button className="btn-login">Login</button>
-          <a href="#" className="login-a-tag1">
+          <Link to="/signup" className="login-a-tag1">
             New to Ema-john? <span>Create new Account</span>
-          </a>
+          </Link>
           <div className="hr-div">
             <hr />
             <span>or</span>

@@ -2,12 +2,13 @@ import { useContext, useState } from "react";
 import google from "../../assets/images/google.png";
 import "./SignUp.css";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../authProvider/AuthProviders";
 import { toast } from "react-toastify";
 import { authErrors } from "../../firebase/firebaseErrorCodes";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const { createUser } = useContext(authContext);
   const [passShow, setPassShow] = useState(false);
   const handleOnSubmit = (event) => {
@@ -20,7 +21,7 @@ const SignUp = () => {
       .then((result) => {
         // Signed in
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         toast.success("User Created Successfully!", {
           position: "top-right",
           autoClose: 3000,
@@ -31,6 +32,7 @@ const SignUp = () => {
           progress: undefined,
           theme: "colored",
         });
+        navigate("/login");
         // ...
       })
       .catch((error) => {
