@@ -1,15 +1,18 @@
-// import React from "react";
-import "./Login.css";
 import google from "../../assets/images/google.png";
+import "./SignUp.css";
 
-const Login = () => {
+const SignUp = () => {
   return (
     <div className="container">
       <div className="container-inner">
-        <h3 className="login-h3">Login</h3>
+        <h3 className="login-h3">Sign Up</h3>
+        <div className="input-div">
+          <label>Name</label>
+          <input type="text" />
+        </div>
         <div className="input-div">
           <label>Email</label>
-          <input className="w-full" type="email" />
+          <input type="email" />
         </div>
         <div className="input-div">
           <label>Password</label>
@@ -33,4 +36,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

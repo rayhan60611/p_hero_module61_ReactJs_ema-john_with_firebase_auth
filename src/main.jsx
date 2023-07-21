@@ -10,6 +10,7 @@ import Login from "./components/login/Login.jsx";
 import Invenroty from "./components/intentory/Invenroty.jsx";
 import Home from "./components/home/Home.jsx";
 import customLoader from "./loader/CustomLoader.js";
+import SignUp from "./components/signUp/SignUp.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <SignUp />,
       },
     ],
   },
