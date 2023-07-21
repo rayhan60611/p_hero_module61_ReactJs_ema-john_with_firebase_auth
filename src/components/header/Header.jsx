@@ -6,7 +6,6 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  console.log(open);
   return (
     <div className="">
       <div

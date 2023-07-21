@@ -2,6 +2,8 @@ import { Outlet, useNavigation } from "react-router-dom";
 import "./App.css";
 import Header from "./components/header/Header";
 import { ArrowPathIcon } from "@heroicons/react/24/solid";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const navigation = useNavigation();
@@ -14,6 +16,7 @@ function App() {
         </div>
       )}
       <Outlet />
+      <ToastContainer />
     </div>
   );
 }
