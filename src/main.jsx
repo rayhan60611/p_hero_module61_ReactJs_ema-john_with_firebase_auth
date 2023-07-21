@@ -12,6 +12,7 @@ import Home from "./components/home/Home.jsx";
 import customLoader from "./loader/CustomLoader.js";
 import SignUp from "./components/signUp/SignUp.jsx";
 import AuthProviders from "./components/authProvider/AuthProviders.jsx";
+import PrivateRoute from "./components/privateRoute/Privateroute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,12 +30,20 @@ const router = createBrowserRouter([
       },
       {
         path: "order-review",
-        element: <OrderReview />,
+        element: (
+          <PrivateRoute>
+            <OrderReview />
+          </PrivateRoute>
+        ),
         loader: customLoader,
       },
       {
         path: "inventory",
-        element: <Invenroty />,
+        element: (
+          <PrivateRoute>
+            <Invenroty />
+          </PrivateRoute>
+        ),
       },
       {
         path: "login",

@@ -6,10 +6,12 @@ import { useContext, useState } from "react";
 import { authContext } from "../authProvider/AuthProviders";
 import { toast } from "react-toastify";
 import { authErrors } from "../../firebase/firebaseErrorCodes";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [passShow, setPassShow] = useState(false);
   const { logIn } = useContext(authContext);
+  const navigate = useNavigate();
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
@@ -19,6 +21,7 @@ const Login = () => {
     logIn(email, password)
       .then((result) => {
         // Signed in
+
         const user = result.user;
         console.log(user);
         toast.success("User Login Successfully!", {
@@ -31,6 +34,7 @@ const Login = () => {
           progress: undefined,
           theme: "colored",
         });
+        navigate("/shop");
       })
       .catch((error) => {
         toast.error(authErrors[error.code.replace(`auth/`, "")], {

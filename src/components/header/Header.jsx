@@ -41,11 +41,12 @@ const Header = () => {
       </div>
 
       <div className={`md:block ${!open ? "hidden" : ""}`}>
-        <div className="bg-[#276fa0]">
+        <div className="bg-[#161515]">
           {user ? (
-            <div className="flex justify-center py-2 gap-5">
+            <div className="flex flex-col md:flex-row items-center justify-between py-2 px-2 gap-5">
               <p className="text-green-500 font-semibold">
-                Welcome, {user.email}{" "}
+                Welcome,
+                <small className="text-white"> {user.email}</small>
               </p>
               <button
                 onClick={handleLogOut}
